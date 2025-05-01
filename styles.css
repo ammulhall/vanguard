@@ -2,6 +2,7 @@
 
 /* IMPORTED FONTS*/
 /* IMPORT "INTER" FROM GOOGLE FONTS"
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Wellfleet&display=swap');
 
 /* CSS RESET */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -72,6 +73,106 @@ table {
     max-width: 1200px;
     margin: 0 auto;
 }
+h1 {
+    position: relative;
+    padding-left: 4rem;
+    color: var(--blue);
+    font-family: var(--font);
+    font-size: 2rem;
+}
+header {
+    background-color: var(--black);
+}
+nav ul {
+    width: 100%;
+    margin:0;
+    padding:0;
+    list-style:none;
+    overflow:hidden;
+    text-align:center;
+    max-height: 0;
+  }
+  nav h2 {
+    visibility:hidden;
+    height:1px;
+  }
+  nav li a {
+    display:block;
+    font-family: var(--font);
+    font-size:1.5rem;
+    padding:1rem;
+    text-transform:uppercase;
+    font-weight:bold;
+    text-decoration:none;
+    color: var(--blue);
+    transition: background-color .3s ease-in;
+  }
+  nav a:hover, nav input:hover {
+      background-color: var(--red);
+  }
+  nav label {
+      cursor: pointer;
+      display: inline-block;
+      padding: 1.5rem;
+      user-select: none;
+  }
+  label span {
+      background-color: var(--blue);
+      display: block;
+      height: .25rem;
+      position: relative;
+      transition: background-color .3s ease-out;
+      width: 2rem;
+  }
+  label span:before, label span:after {
+      background: var(--blue);
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all .2s ease-out;
+      width: 100%;
+  }
+  label span:before {
+      top: .75rem;
+  }
+  label span:after {
+      top: -.75rem;
+  }
+  input {
+    display:none;
+  }
+  input:checked ~ ul {
+      max-height: 500px;
+  }
+  input:checked ~ label span {
+      background: transparent;
+  }
+  input:checked ~ label span:before {
+      transform: rotate(-45deg);
+  }
+  input:checked ~ label span:after {
+      transform: rotate(45deg);
+  }
+  input:checked ~ label:not(.steps) span:before, input:checked ~ label:not(.steps) span:after {
+      top: 0;
+  }
+  @media screen and (min-width: 600px){
+    nav ul {
+      overflow:visible;
+      position:absolute;
+      top: 1.5rem;
+      left:.5rem;
+      display: grid;
+      grid-template-columns:1fr 1fr 1fr;
+    }
+    nav li a {
+      display:inline-block;
+  }
+    label span, input {
+      display:none;
+    }
+  }
 
 /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
  #intro{
@@ -83,11 +184,83 @@ table {
     padding: 1rem;
     overflow: hidden;
 }
+#intro .container {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 2rem;
+}
+#intro h2 {
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 2rem;
+    padding: 1rem;
+}
+#intro p{
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 1rem;
+    padding: 1rem;
+}
+#intro button {
+    background-color:#007BFF;
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+#expertise, #services {
+    background-color: var(--white);
+    font-family: var(--font);
+}
+#expertise h2, #services h2 {
+    color: var(--black);
+    font-family: var(--font);
+    font-size: 2rem;
+    padding: 1rem;
+}
 
+#expertise p {
+    color: var(--black);
+    font-family: var(--font);
+    font-size: 1rem;
+    padding: 1rem;
+}
+#services {
+    padding: 2rem;
+}
+#services h3 {
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 1.5rem;
+    padding: 1rem;
+    font-weight: bold;
+    text-align: center;
+}
+.service-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+.service {
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    font-family: var(--font);
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
  h1::before{
     content: "";
-
+    position: absolute;
+    top: 0;
     left:-.5rem;
     width: 3.75rem;
     height: 3.75rem;
@@ -142,7 +315,7 @@ table {
 
 
 /* MEDIA QUERIES (MEDIUM) */ 
-
+@media screen and (min-width: 600px) {
     #results {
         grid-template-columns: 1fr 1fr;
     }
@@ -156,6 +329,27 @@ table {
     .bar-chart {
         width: 50%;
     }
-
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
 /* MEDIA QUERIES (LARGE) */
+@media screen and (min-width: 900px) {
+    #results {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .results-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .results-table {
+        width: 33%;
+    }
+    .bar-chart {
+        width: 33%;
+    }
+    .service-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
