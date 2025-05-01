@@ -1,4 +1,4 @@
-/* CSS BY YOUR NAME */
+/* CSS BY Alisa Mulhall */
 
 /* IMPORTED FONTS*/
 /* IMPORT "INTER" FROM GOOGLE FONTS"
@@ -74,7 +74,7 @@ table {
 }
 
 /* ADD TO "INNOVATION & INVESTMENT SECTION (Photo by Kevin Matos on Unsplash) */
- {
+ #intro{
     background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/vanguard-hero.jpg') no-repeat center center/cover;
     height: 80vh;
     display: grid;
@@ -85,7 +85,7 @@ table {
 }
 
 /* ADD FLOATING SVG LOGO BEFORE THE H1 */
- {
+ h1::before{
     content: "";
 
     left:-.5rem;
@@ -113,7 +113,7 @@ table {
     background: var(--charcoal);
     border-radius: 10px;
     position: relative;
-    transition: ;
+    transition: height 1s ease-in-out;
     height: 0;
 }
 /* THIS ONE IS DONE FOR YOU */
